@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+
+	<section class="home" style="margin:7rem 0" id="home">
+
+		<div class="content" >
+			<h3>Bienvenue chez
+				<span>Fast</span>
+				Food
+			</h3>
+			<p>Nous sommes heureux de vous accueillir dans notre restaurant</p>
+			<p>Ouvert 7j/7 de 11h30 à 23h00</p>
+			<p>01 06 12 45 45</p>
+			
+		</div>
+
+		<div class="shape"></div><br>
+
+
+	</section>
+
+
+	<section class="about" id="about">
+
+		<div class="image">
+			<img src="{{asset('assets/images/food-1.png')}}" alt="">
+		</div>
+
+		<div class="content">
+			<span>Commandez dès à présent</span>
+			<h3 class="title">La livraison est gratuite</h3>
+			<p>Nous vous offrons le déssert du chef</p>
+			<a href="{{path('products')}}" class="btn">Commander</a>
+			<div class="icons-container">
+				<div class="icons">
+					<img src="{{asset('assets/images/serv-1.png')}}" alt="">
+					<h3>Livraison rapide de votre commande</h3>
+				</div>
+				<div class="icons">
+					<img src="{{asset('assets/images/serv-2.png')}}" alt="">
+					<h3>Nourriture fraîche</h3>
+				</div>
+				<div class="icons">
+					<img src="{{asset('assets/images/serv-3.png')}}" alt="">
+					<h3>Excellente qualité</h33</div>
+					<div class="icons">
+						<img src="{{asset('assets/images/serv-4.png')}}" alt="">
+						<h3>ouvert tous les jours de 11h00 à 23h00</h3>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="review" id="review">
+
+			<h1 class="heading" style="margin:3rem 3%">
+				les avis
+				<span>des clients</span>
+			</h1>
+
+			<div class="box-container">
+
+				<div class="box">
+					<img src="{{ asset('assets/images/pic1.png')}}" alt="">
+					<h3>Nathalie Valse</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<p>
+                        La nourriture est délicieuse, on est servi rapidement et c'est très bien durant la pause du midi
+					</p>
+				</div>
+				<div class="box">
+					<img src="{{ asset('assets/images/pic2.png')}}" alt="">
+
+					<h3>Johnny Zoelensky</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<p>Le service est rapide et parfois on m'offre le déssertt, c'est cool!
+					</p>
+				</div>
+				<div class="box">
+					<img src="{{ asset('assets/images/pic3.png')}}" alt="">
+
+					<h3>Nelly Utanlo</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<p>
+                        Le délai de livraison est convenable, la nourriture est encore chaude. c'est un gain de temps car je ne peux me déplacer pendant la pause déjeuner.
+                    </p>
+				</div>
+
+			</div>
+
+		</section>
+
+
+{% endblock %}

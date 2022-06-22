@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reserver une table
+{% endblock %}
+
+{% block body %}
+    
+<section class="order" style="margin:10rem 3%" id="order">
+
+    <div class="heading">
+        <h1><span>Réserver votre table</span></h1>
+       
+    </div>
+
+    <div class="icons-container">
+
+        <div class="icons">
+            <img src="{{asset('assets/images/icon-1.png')}}" alt="">
+
+            <h3>11:00am à 23h00</h3>
+        </div>
+
+        <div class="icons">
+             <img src="{{asset('assets/images/icon-2.png')}}" alt=""
+            <h3>+123-456-7890</h3>
+        </div>
+
+        <div class="icons">
+            <img src="{{asset('assets/images/icon-3.png')}}" alt=""
+            <h3>Anthony 92000</h3>
+        </div>
+
+    </div>
+
+    <form action="">
+
+        <div class="flex">
+            <div class="inputBox">
+                <span>votre nom</span>
+                <input type="text" placeholder="Votre nom" name="" id="">
+            </div>
+            <div class="inputBox">
+                <span>votre numéro de téléphone</span>
+                <input type="number" placeholder="votre n° de téléphone" name="" id="">
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="inputBox">
+                <span>votre commande</span>
+                <input type="text" placeholder="Votre commande" name="" id="">
+            </div>
+            <div class="inputBox">
+                <span>quantité</span>
+                <input type="number" placeholder="quantité" name="" id="">
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="inputBox">
+                <span>détail</span>
+                <input type="text" placeholder="Taper votre message" name="" id="">
+            </div>
+            <div class="inputBox">
+                <span>heure de réservation</span>
+                <input type="datetime-local">
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="inputBox">
+                <textarea placeholder="Vos coordonnées" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="inputBox">
+            
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21043.24509740724!2d2.2489360791015693!3d48.7550495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67769a2b07be1%3A0xf9707dbd17efc3dc!2sCoul%C3%A9e%20Verte!5e0!3m2!1sfr!2sfr!4v1655796576613!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            </div>
+        </div>
+
+        <input type="submit" value="valider votre reservation" class="btn">
+
+    </form>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

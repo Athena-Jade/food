@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}valider commande de l'user
+{% endblock %}
+
+{% block body %}
+
+
+	<h3 style="margin-top:12rem; margin-left:6rem">
+		Passez votre commande</h3>
+	<p style="margin:3rem 6%">Choisissez vos préférences avant de passer votre commande</p>
+	<hr>
+
+	
+
+		<div class="row" style="margin:2rem 6%">
+
+			<div class="col-sm-6">
+				{% set formHtml %}
+				{{form_start(form, {action:path('order_recap')} )}}
+				{{form_label(form.addresses, 'Choisissez votre adresse de livraison')}}
+				<a href="{{path('account_address_add')}}">
+					Ajouter une nouvelle adresse de livraison</a>
+
+
+				{{form_end(form)}}
+				{% endset %}
+
+
+				{{formHtml|replace({'[br]' : '<br/>'})|raw }}
+			</div>
+
+
+			<div class="col-sm-6">
+
+				<div class="text-center">
+					<b>Récapitulatif de votre commande</b><br>
+					<br>
+				</div>
+
+				<div class="order-summary">
+					{% for key, product in cart %}
+
+						<div class="row {% if key > 0 %}mt-2{% endif %}">
+							<div class="col-2">
+								<img src="/upload/{{ product.product.illustration}}" alt="{{product.product.name}}" width="90%">
+							</div>
+
+							<div
+								class="col-8 my-auto">
+								
+								{{product.product.name }}
+								<br>
+								<small>{{product.product.subtitle}}</small>
+							</div>
+
+							<div class="col-2 my-auto" style="margin-left:19%" ; style="padding-bottom:3%">
+								x
+								{{product.quantity}}
+								<br>
+
+								<small>{{ (product.product.price * product.quantity /100)|number_format(2, ',', '.') }}€</small>
+							</div>
+
+
+						</div>
+						{# row #}
+
+
+					{% endfor %}
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+
+	
+
+	<br><br>
+
+{% endblock %}

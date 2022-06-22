@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits
+{% endblock %}
+
+{% block body %}
+	
+	<section class="products" id="products">
+		<h3 style="margin-top:10rem">Rechercher vos produits</h3>
+		{{form (form)}}
+		<h1 style="margin:10rem 11%">Notre menu</h1>
+
+		<div class="box-container">
+			{% for product in products %}
+				<div
+					class="box">
+					{#	<span class="discount">-10%</span> #}
+					<div class="image">
+						<a href="{{ path('product', { 'slug' : product.slug }) }}"> <img src="/upload/{{ product.illustration }}" alt="{{ product.name }}"> 
+					<div class="icons">
+					{#}	<a href="#" class="fas fa-heart"></a> #}
+						
+						    <a href="{{ path('add_to_cart', { 'id' : product.id}) }}" class="btn">Ajouter dans le panier</a> 
+					{#}	<a href="#" class="fas fa-share"></a> #}
+					</div>
+				</div>
+				<div
+					class="content">
+					
+					<h3>{{product.name}}</h3>
+					<div class="price">{{ (product.price /100)|number_format(2, ',', '.')}}€
+
+						<span></span>
+
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="far fa-star"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		{% endfor %}
+
+	</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

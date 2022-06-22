@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block javascript%}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block title %}l'user paye sa commande{% endblock %}
+
+{% block body %}
+   <h3 style="margin: 12rem 3%">Votre récapitulatif</h3>
+    <p style="margin:-4rem 3%">Vérifiez vos informations avant de payer votre commande</p>
+    <hr>
+
+  <section class="recap-order" style="margin:5rem 3%">
+    <div class="row">
+
+        <div class="col-md-6">
+           <br>
+            <strong>Votre adresse de livraison</strong><br>
+            <div class="form-check mt-4">                               
+                {{delivery|raw }}  
+            </div>
+           
+            <hr>
+            
+            <strong>Votre transporteur</strong><br>
+            <div class="form-check mt-4">
+                {{carrier.name}} <br>
+                {{carrier.description}} <br>
+                {{ (carrier.price/100)|number_format(2, ',', '.') }}€   
+            </div>
+               
+        </div>
+        
+        
+        <div class="col-md-6">
+            <div class="text-center"><br>
+                <b>Votre commande</b><br> 
+            </div>
+           
+            <div class="order-summary">
+                {% set total = null %}
+                {% for key, product in cart %}
+                         
+                    <div class="row {% if key >0 %}mt-2{% endif %}">
+                        <div class="col-2"> 
+                            <img src="/upload/{{ product.product.illustration}}" alt="{{product.product.name}}" height="50px">
+                        </div>
+                        
+                        <br>
+                                
+                            <div class="col-8 my-auto" style="margin-left:4rem">
+                                {{product.product.name }} 
+                                    
+                                <small>{{product.product.subtitle}}
+                                    <br>
+                                    x {{product.quantity}}
+                                </small>
+                                
+                            </div>
+                                
+
+                            <div class="col-2 my-auto" style="margin-left:26%">
+                                {{ (product.product.price * product.quantity /100)|number_format(2, ',', '.') }}€ 
+                                
+                            </div>
+
+                    </div>{# row #}
+                        
+                    {% set total = total + (product.product.price * product.quantity) %}
+                {% endfor %}
+
+            </div>
+            
+
+            <hr>                                       
+                <strong>Livraison : </strong>{{ (carrier.price /100)|number_format(2, ',', '.') }}€<br/> 
+            <hr>
+
+         
+
+            <strong>Total : </strong> {{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', '.') }} €    <br><br>                            
+      
+         
+
+               <a href="{{ path('stripe_create_session',{'reference':reference}) }}" class="btn btn-warning " id="checkout-button">Payer |{{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', '.') }} €</a>     
+            {# j'ai ajouté id="checkout-button" pour Stripe #}
+          
+
+
+
+        </div>
+
+
+    </div> {# div class row #}
+    <br><br>
+  </section>
+  <br><br>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block script %}  {# Ajout de ce script pour Stripe #}
+
+  <script type="text/javascript">
+
+    var stripe = Stripe('pk_test_51LATIqLyM5Z6BVSgDmw8RyZjdRw2ZiuKqKEYcj2XXUQw9BidtMOBcdcZOj0KHGVGLUHMiLTTXycCuJLLojwK5gPt001HvmUSTu');
+    
+
+    var checkoutButton = document.getElementById("checkout-button");
+
+    checkoutButton.addEventListener("click", function () {
+
+      fetch("/commande/create-session/{{ referencee }}", {  //Ajout de reference
+
+        method: "POST",
+
+      })
+
+        .then(function (response) {
+
+          return response.json();
+
+        })
+
+        .then(function (session) {
+          
+          if (session.error == 'order') {  //si session error car la commande n'a pas été créée correctement
+            //alors redirection 
+              window.location.replace('{{ path('order') }}');
+          
+          }else{//sinon redirection vers paiement
+             return stripe.redirectToCheckout({ sessionId: session.id });
+          }
+
+          
+
+        })
+
+        .then(function (result) {
+
+          // If redirectToCheckout fails due to a browser or network
+
+          // error, you should display the localized error message to your
+
+          // customer using error.message.
+
+          if (result.error) {
+
+            alert(result.error.message);
+
+          }
+
+        })
+
+        .catch(function (error) {
+
+          console.error("Error:", error);
+
+        });
+
+    });
+
+  </script>
+
+{% endblock script %}
+
+
+  

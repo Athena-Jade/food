@@ -1,0 +1,943 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');/* pour commentaires des users*/
+
+
+:root {
+    --orange: #f39b0c;
+
+}
+
+
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+
+
+}
+
+
+*::selection {
+    background: var(--orange);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+
+
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--orange);
+    color: #fff;
+    padding: .8rem 1rem;
+    border: .2rem solid var(--orange);
+    cursor: pointer;
+    font-size: 1.15rem;
+}
+
+.btn:hover {
+    background: rgba(255, 165, 0, .2);
+    color: var(--orange);
+}
+
+
+
+
+
+/************ HEADER     *************/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ba9b61;
+    z-index: 10000;
+   
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 9%;
+}
+
+/* ok */
+header .logo {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+header .logo span {
+    color: var(--orange);
+   
+}
+
+
+header .logo:hover {
+    color: #fff;
+}
+
+
+header .navbar a {
+
+    font-size: 1.5rem;
+    margin: 0 .8rem;
+    color: #333;
+
+}
+
+header .navbar a:hover {
+    color: var(--orange);
+}
+
+header .icons i {
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+header .icons i:hover {
+    color: var(--orange)
+}
+
+
+
+
+
+/***** FORMULAIRE INSCRIPTION  ok responsive *********/
+.contenair_inscription {
+    margin: 20rem 8%;
+    padding: 1rem 2%;
+    width: 40rem;
+    flex: 1 1 25rem;
+    /*  border: .1px solid #333; */
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: .5rem;
+
+    color: #333;
+    background-color: #ba9b61;
+}
+
+.contenair_inscription .content h1 span {
+    color: var(--orange);
+}
+
+/*agrandir bouton s'inscrire */
+#register_submit {
+    font-size: 1.5rem;
+    letter-spacing: .5rem;
+}
+
+/************** formulaire connexion      ok responsive *******/
+.form_login {
+    margin: 20rem 8%;
+    padding: 1rem 2%;
+    width: 40rem;
+    flex: 1 1 25rem;
+    /* border: .1px solid #333; */
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: .5rem;
+    color: #333;
+    background-color: #ba9b61;
+
+}
+
+/*agrandir bouton se connecter*/
+#btn-connexion {
+    letter-spacing: .5rem;
+}
+
+
+.form_login h1 span {
+    color: var(--orange);
+
+}
+
+/* connexion/inscription */
+header .contenair_clients a {
+    color: white;
+    text-decoration: none;
+}
+
+/* connexion/inscription */
+header .contenair_clients a:hover {
+    color: #333;
+
+}
+
+
+
+/********* logo burger ********/
+#menu-bar {
+    color: rgb(41, 36, 36);
+    border: .1rem solid #fff;
+    border-radius: .5rem;
+    font-size: 3rem;
+    padding: .5rem 1.2rem;
+    cursor: pointer;
+    /*  display: none; */
+    display: flex;
+
+
+}
+
+
+
+
+/********  affichage de la vue des produits **********/
+.product h1 {
+    margin: 2rem 9%;
+}
+
+.products .box-container {
+    margin-top: -4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.products .box-container .box {
+    flex: 1 1 30rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    position: relative;
+}
+
+
+.products .box-container .box .image {
+    position: relative;
+    text-align: center;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+
+.products .box-container .box .image img {
+    height: 25rem;
+}
+
+.products .box-container .box:hover .image img {
+    transform: scale(1.1);
+}
+
+.products .box-container .box .image .icons {
+    position: absolute;
+    bottom: -7rem;
+    left: 0;
+    right: 0;
+    display: flex;
+}
+
+.products .box-container .box:hover .image .icons {
+    bottom: 0;
+}
+
+.products .box-container .box .image .icons a {
+    height: 5rem;
+    line-height: 2rem;    
+    font-size: 1.85rem; 
+    width: 56%;
+    background: var(--pink);
+    color: var(--orange);
+    font-weight: bolder;
+    text-decoration: none;
+    margin: 9rem -10%;
+    border:none
+}
+
+
+.products .box-container .box .image .icons .cart-btn {
+    border-left: .1rem solid #fff7;
+    border-right: .1rem solid #fff7;
+    width: 100%;
+}
+
+
+.products .box-container .box .content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.products .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.products .box-container .box .content .price {
+    font-size: 2.5rem;
+    color: var(--pink);
+    font-weight: bolder;
+    padding-top: 1rem;
+}
+
+.products .box-container .box .content .price span {
+    font-size: 1.5rem;
+    color: #999;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.box-container .stars {
+    color: var(--orange);
+}
+
+
+
+
+/* fiche détail d'un produit */
+
+/* vue sur 1 produit */
+.vue_sur_un_produit {
+    background-color: rgb(243, 239, 239);
+    padding: 3rem 2%;
+
+    margin: 2rem 9%;
+}
+
+
+/****** SearchType  filtre produits *********/
+/* reduir input votre recherche*/
+.form-control-sm{
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    margin: 3rem;   
+}
+
+div .form-check{
+    font-size: 1.5rem;
+    
+}
+
+
+
+
+
+
+/******** espace membre clients ************/
+.mon-espace-client {
+    border: .1px solid gray;
+    padding: 2rem 3%;
+    margin: 2rem 21%;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.mon-espace-client .contenu-mon-espace-client h1 {
+    color: var(--orange);
+}
+
+.boxe-mon-espace-client .contenu-mon-espace-client a {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+
+}
+
+
+.boxe-mon-espace-client .contenu-mon-espace-client a:hover {
+    color: var(--orange);
+
+}
+
+
+/****** Le panier de l'user ******/
+section .mon-panier p {
+    font-size: 1.5rem;
+
+}
+
+
+
+/********* page accueil ***********/
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8vh;
+  /*  min-height: 80vh; */
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 2rem 9%;
+}
+
+.home .content {
+    text-align: center;
+    padding: 1rem;
+}
+
+.home .content h3{
+    font-size: 3rem;
+    color: #fff;
+}
+
+.home .content h1 span {
+    color: var(--red);
+}
+
+.home .content p {
+    font-size: 1.55rem;
+    color: #fff;
+    width: 68rem;
+    padding: 1rem 0;
+}
+
+.home .shape {
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    height: 7rem;
+    background: url(../images/shape-bottom.png);
+    background-size: 350rem 13rem;
+    width: 100%;
+    animation: animate 25s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 350rem;
+    }
+}
+
+
+section {
+    padding: 2rem 9%;
+}
+
+
+/*****  about ****/
+
+.about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2rem;
+    background: #f7f7f7;
+}
+
+.about .image {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+}
+
+.about .image img {
+    width: 100%;
+}
+
+.about .content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+}
+
+.about .content span {
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    color: #333;
+}
+
+.about .content .title {
+    font-size: 3rem;
+    padding-top: .5rem;
+    color: #130f40;
+}
+
+.about .content p {
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.about .content .icons-container {
+    margin-top: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.about .content .icons-container .icons {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 20rem;
+    flex: 1 1 20rem;
+    border-radius: .5rem;
+    background: #fff;
+    -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.about .content .icons-container .icons h3 {
+    font-size: 1.7rem;
+    color: #130f40;
+}
+
+
+
+
+
+/******** REVIEW ********/
+.review .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.review .box-container .box {
+    text-align: center;
+    padding: 2rem;
+    border: 1rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    border-radius: .5rem;
+    flex: 1 1 30rem;
+    background-color: #333;
+    margin-top: 6rem;
+
+}
+
+.review .box-container .box img {
+    height: 12rem;
+    width: 12rem;
+
+    /* photo dans un cercle*/
+    border-radius: 50%;
+    border: 1rem solid #fff;
+    margin-top: -8rem;
+
+}
+
+/* prenoms des clients*/
+.review .box-container .box h3 {
+    font-size: 2rem;
+    color: #fff;
+    padding: 0.5rem 0;
+}
+
+
+.review .box-container .box .stars i {
+    font-size: 2rem;
+    color: var(--red);
+    padding: 5rem 0;
+}
+
+
+.review .box-container .box p {
+    font-size: 1.5rem;
+    color: #eee;
+    padding: 1rem 0;
+
+    font-family: 'Satisfy', cursive;
+    text-transform: lowercase;
+    text-align: left;
+    
+}
+
+
+.heading {
+    text-align: center;
+    font-style: 3.5rem;
+    padding: 1rem;
+    color: #666;
+}
+
+/* speciality en rouge */
+.heading span {
+    color: var(--red);
+}
+
+
+/****** book table ******/
+.order .icons-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.order .icons-container .icons {
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    background: #f7f7f7;
+}
+
+.order .icons-container .icons img {
+    height: 10rem;
+}
+
+.order .icons-container .icons h3 {
+    font-size: 2rem;
+    color: #130f40;
+    margin-top: .5rem;
+}
+
+.order form {
+    background: #f7f7f7;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.order form .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.order form .flex .inputBox {
+    width: 49%;
+    padding: .7rem 0;
+}
+
+.order form .flex span {
+    font-size: 1.7rem;
+    color: #666;
+}
+
+.order form .flex input,
+.order form .flex textarea {
+    width: 100%;
+    margin-top: .5rem;
+    padding: 1rem 1.2rem;
+    width: 100%;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    text-transform: none;
+    color: #130f40;
+}
+
+.order form .flex textarea {
+    height: 20rem;
+    resize: none;
+}
+
+.order form .flex .map {
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+
+
+
+/****** order.add.html.twig ********/
+/* mettre une marge */
+label .form-check-label{
+    margin-top: 2rem;
+}
+
+
+/******** order_cancel.html.twig ********/
+.erreur-paiement p{
+    display: inline;
+    font-size: 1.25rem;
+
+}
+
+
+/********** contact/index.html.twig ***********/
+.mb-3{
+    width: 25rem;
+}
+
+
+
+
+/************* FOOTER *************/
+.footer {
+    background: #f7f7f7;
+}
+
+.footer .newsletter {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer .newsletter h3 {
+    font-size: 2.5rem;
+    color: #333;
+    padding-bottom: 1rem;
+}
+
+.footer .newsletter form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    max-width: 70rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.footer .newsletter form input[type="email"] {
+    height: 100%;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #130f40;
+    text-transform: none;
+}
+
+.footer .newsletter form input[type="submit"] {
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    color: white;
+    background: var(--orange);
+    cursor: pointer;
+}
+
+.footer .newsletter form input[type="submit"]:hover {
+    background: #333;
+}
+
+.footer .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.2rem;
+    color: #130f40;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box p {
+    font-size: 1.4rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+    display: block;
+    font-size: 1.4rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a:hover {
+    color: var(--orange);
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+
+.footer .box-container .box a i {
+    padding-right: .5rem;
+    color: var(--orange);
+}
+
+.footer .bottom {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.footer .bottom .share {
+    margin: 1.5rem 0;
+}
+
+.footer .bottom .share a {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    margin: 0 .3rem;
+    color: #fff;
+    background: #333;
+}
+
+.footer .bottom .share a:hover {
+    background: var(--orange);
+}
+
+.footer .bottom .credit {
+    font-size: 2rem;
+    color: #666;
+    padding: 1rem;
+}
+
+.footer .bottom .credit span {
+    color: var(--orange);
+}
+
+
+
+
+
+
+
+/******** MEDIAS QUERIES ***** **/
+@media (max-width:1200px) {
+    html {
+        font-size: 55%;
+    }
+
+
+    .header .navbar a{
+        font-size: 1rem;
+    }
+
+
+}
+
+
+@media (max-width:991px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    .home{
+        min-height: 5vh;
+    }
+
+
+
+}
+
+
+
+@media (max-width:768px) {
+    #menu-bar {
+        display: initial;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: #d2a95b;
+        border-top: .1rem solid rgba(255, 255, 255, .2);
+        border-bottom: .1rem solid rgba(72, 67, 67, 0.2);
+        padding: 1rem 1rem;
+        display: block;
+        padding: 1rem 1%;
+
+        /* mettre en colonne*/
+        flex-direction: column;
+
+        /* cacher navbar */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)
+    }
+
+
+    /* la navbar reapparait */
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+
+
+    header .navbar a {
+       /* display: flex; */
+
+       display:block;
+       padding: 1.5rem;
+       margin: 1.5rem;
+       font-size: 2rem;
+       background-color: rgb(227, 214, 214);
+      
+    }
+
+
+
+    .home .content h3{
+        font-family: 1.85rem;
+    }
+
+
+
+
+
+}
+
+@media (max-width:450px) {
+
+    html {
+        font-size: 40%;
+    }
+
+
+    /* logo burger*/
+    #menu-bar {
+
+        font-size: 1.65rem;
+
+    }
+
+    .recap-order{
+        padding:0 3 rem
+    }
+
+
+
+    .home .contet p{
+        font-size: 1.25rem;
+    }
+
+}

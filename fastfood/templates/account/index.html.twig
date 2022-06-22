@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}compte user  - espace membre{% endblock %}
+
+{% block body %}
+    <br>
+	<section class="mon-espace-client" style="margin-top:15rem;">
+		<div class="contenu-mon-espace-client">
+
+			<h1 >mon compte</h1>
+			<p style="font-size:1.5rem">
+				Bienvenue
+				{{ app.user.firstname }}
+				!</p>
+			<p style="font-size:1.5rem">Cet espace membre, vous permet de gérer vos adresses de livraison</p>
+
+			<div class="boxe-mon-espace-client">
+				<div class="contenu-mon-espace-client">
+					<a href="{{ path('account_address_add')}}" style="text-decoration:none">- Ajouter une adresse de livraison</a> 
+					<br>
+                </div>
+
+
+                <div class="contenu-mon-espace-client">
+					<a href="{{path('account_password')}}" style="text-decoration:none">- modifier votre mot de passe</a><br>
+                </div>
+                <div class="contenu-mon-espace-client">
+					<a href="{{path('account_address')}}" style="text-decoration:none">- Gérer vos adresses</a>
+			    </div>
+
+				<div class="la-vue-commande">
+					<a href="{{path('account_order')}}">Vos commandes</a>
+				</div>
+				
+			</div>
+
+		</div>
+	</section>
+    <hr>
+
+{% endblock %}

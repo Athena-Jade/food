@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos adresses
+{% endblock %}
+
+
+{% block body %}
+	<br>
+    <section class="ajouter-une-adresse-de-livraison" style="margin-top:15rem">
+		<div class="content">
+
+			<h1 class="heading">Vos commandes</h1><br>
+		
+			<p>
+				<h4>Cet espace vous permet de gérer toutes vos commandes :
+				</h4>
+			</p>
+
+			<div class="boxe-parametre1">
+				
+				<br>
+
+				<h4>
+					<a href="{{ path('account') }}" style="text-decoration:none">Retour à votre compte</a> 
+				</h4>
+
+				   
+				<br><br>
+			</div>
+
+
+			{% if app.user.orders|length == 0 %} 
+				{# si l'utilisateur n'a pas encore renseigné une adresse de livraison alors message #}
+
+				<p class="text-center mb-5">
+					Vous n'avez pas encore passer de commandes.
+					<br>
+					
+				</p>
+				<br><br><br><br><br><br><br><br><br>
+
+			{% else %}
+				<div class="row">
+					{% for order in app.user.orders %}
+
+						{{dump(order)}}
+
+
+					{% endfor %} 
+
+				</div>
+				{# row #}
+
+
+			{% endif %} 
+
+		</div>
+	</section><hr>
+
+{% endblock %}

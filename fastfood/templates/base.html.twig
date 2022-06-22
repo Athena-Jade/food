@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}page accueil
+			{% endblock %}
+		</title>
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+		{% block stylesheets %}{% endblock %} 
+		
+		{% block javascript %}
+		{% endblock %} {# j'ai mis ça pour stripe #}
+
+
+		<!-- aos css cdn link  -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+	</head>
+
+
+	<body>
+
+		{% block body %}{% endblock %}
+
+
+		<header>
+
+			<div id="menu-bar" class="fas fa-bars"></div>
+
+			<a href="#" class="logo">
+				<span>F</span>astFood</a>
+
+			<nav class="navbar">
+				<a href="{{path('home')}}" style="text-decoration:none">accueil</a>
+				<a href="{{path('products')}}" style="text-decoration:none">commander
+				</a>
+				<a href="{{path('book_table')}}" style="text-decoration:none">réserver une table</a>
+
+				<a href="{{path('contact')}}" style="text-decoration:none">contact</a>
+			</nav>
+
+			<div class="icons">			
+				<a href="{{path('cart')}}">
+					<i class="fa-solid fa-cart-shopping"></i>
+				</a>
+				
+			</div>
+
+
+			<div class="contenair_clients">
+				<i class="fas fa-user" id="login-btn"></i>
+				{% if app.user %}
+
+					<a href="{{ path('account') }}">Mon compte
+						<small>({{ app.user.firstname }})</small>
+					</a>
+
+					<a href="{{ path('app_logout') }}">Déconnexion
+					</a>
+				{% else %}
+					<a href="{{ path('app_login') }}">Connexion
+					</a>
+
+					<a href="{{ path('register') }}">Inscription
+					</a>
+				{% endif %}
+
+			</div>
+	
+		</header> <br><br><br><br>
+
+
+		<section class="footer">
+
+			<div class="newsletter">
+				<h3>newsletter</h3>
+				<form action="">
+					<input type="email" name="" placeholder="enter your email" id="">
+					<input type="submit" value="subscribe">
+				</form>
+			</div>
+
+			<div class="box-container">
+			
+				<div class="box">
+					<h3>extra links</h3>
+					<a href="#">
+						<i class="fas fa-arrow-right"></i>
+						ma commande</a>
+					<a href="#">
+						<i class="fas fa-arrow-right"></i>
+						mon compte</a>
+					<a href="#">
+						<i class="fas fa-arrow-right"></i>
+						mes favoris</a>
+					<a href="#">
+						<i class="fas fa-arrow-right"></i>
+						Conditions générales d'utilisations</a>
+					
+				</div>  
+
+				<div class="box">
+					<h3>heures d'ouverture</h3>			
+					<p>lundi au dimanche</p>
+					<p> de 11h00 à 23h00</p>
+				</div>
+
+			</div>
+
+			<div class="bottom">
+
+				<div class="share">
+					<a href="#" style="text-decoration:none" class="fab fa-facebook-f"></a>
+					<a href="#" style="text-decoration:none" class="fab fa-twitter"></a>
+					<a href="#" style="text-decoration:none" class="fab fa-instagram"></a>
+					<a href="#" style="text-decoration:none" class="fab fa-linkedin"></a>
+					<a href="#" style="text-decoration:none" class="fab fa-pinterest"></a>
+				</div>
+
+				
+
+			</div>
+
+		</section>
+
+
+		
+
+		<script src="{{ asset('assets/js/navbar.js') }}"></script>
+		<script src="{{ asset('assets/js/form_recherche.js')}}"></script>
+		<script src="{{ asset ('assets/js/images.js')}}"></script>
+
+		{% block javascripts %}{% endblock %}
+
+		{#	{% block script %}
+	
+		{% endblock %}  #}  {# dernière version striple plus besoin de  ça #}
+
+
+	</body>
+
+</html>

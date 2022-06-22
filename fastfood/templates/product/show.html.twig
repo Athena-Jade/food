@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<div class="vue_sur_un_produit" style="margin-top:15rem">
+		<br>
+		<div class="row">
+			<div class="col-md-5">
+				<img src="/upload/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
+			</div>
+
+			<div class="col-md-7 my-auto">
+				<h3>{{ product.name }}</h3>
+				<h5>{{ product.subtitle }}</h5>
+
+				<span class="product-page-price">{{ (product.price /100)|number_format(2, ',', '.') }}€</span>
+				<hr>
+				<p>{{ product.description }}</p>
+				<a href="{{ path('add_to_cart', { 'id' : product.id}) }}" class="btn btn-secondary">Ajouter au panier</a> 
+
+			</div>
+
+
+		</div>
+
+
+		<hr>
+
+		<a href="{{path('products')}}">Retour aux produits</a><br><br>
+		<br>
+
+	</div>
+	{# vue_sur_un_produit #}
+	<br><br><br><br>
+
+
+{% endblock %}

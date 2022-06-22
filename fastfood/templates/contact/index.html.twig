@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact l'utilisateur laisse un message
+{% endblock %}
+
+{% block body %}
+	<div class="contact-us" style="margin:19rem 3%">
+		<h3 class="ml-4">Pour nous contacter, veuillez laisser un message,
+			<br>
+			nous vous répondrons prochainement.
+		</h3>
+		<div class="contenu-contact">
+
+
+			<br><br>
+			{% for message in app.flashes('notice') %}
+				<div class="alert alert-info">{{ message }}</div>
+			{% endfor %}
+
+			<div class="row">
+				<div class="col-md-8">
+					{{form(form)}}
+					</div>
+					<div class="col-md-4">
+
+						<strong>FastFood</strong>
+						<hr>
+						06 68 74 97 72
+						<br>
+						Coulée Verte
+						172 Rue des  Sources
+						92000 Anthony
+						<br><br>
+
+						
+						<a href="mailto:fastfood@gmail.com">fastfood@gmail.com</a>
+
+					</div>
+
+				</div><br><br>
+
+			</div>
+			<br><br>
+		</div>
+	</div>
+{% endblock %}
